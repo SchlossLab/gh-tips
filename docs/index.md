@@ -5,4 +5,4 @@ Examples to check out:
 
 - [Report](report.html)
 - [Xaringan Slides](slides/example-slides.html)
-- Paper: [HTML](paper.HTML) | [PDF](paper.pdf)
+- Paper: [HTML](paper.HTML) \| [PDF](paper.pdf)
