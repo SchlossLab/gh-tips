@@ -1,0 +1,89 @@
+---
+title: "An example presentation"
+subtitle: ""
+author: "Kelly Sovacool"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+    chakra: libs/remark-latest.min.js
+    self_contained: true
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE
+                  )
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#000000",
+  header_font_google = google_font("Helvetica"),
+  text_font_google = google_font("Helvetica")
+)
+```
+
+```{r chakra, eval = FALSE}
+# run once to download remark-lastest
+xaringan::summon_remark(to = 'docs/slides/libs')
+```
+
+
+```{r libs}
+library(here)
+library(knitr)
+library(tidyverse)
+xaringanExtra::use_share_again()
+```
+
+
+## Managing Bioinformatics Pipelines
+
+.center[
+<img src="https://snakemake2019.readthedocs.io/en/latest/_images/workflow_management.png" width="750"/>
+]
+
+.footnote[
+[snakemake.readthedocs.io](https://snakemake.readthedocs.io)
+]
+
+???
+I ran about 20,000 jobs on the GreatLakes HPC for the OptiFit analysis project.
+
+---
+
+## Pipelines with <img src="https://raw.githubusercontent.com/snakemake/snakemake/f55801bfabfb916f77fa4ec8f9eb0667e5c8a92e/images/biglogo.png" height="35"/> 
+
+&nbsp;
+
+.center[
+<img src="https://raw.githubusercontent.com/snakemake/snakemake/f55801bfabfb916f77fa4ec8f9eb0667e5c8a92e/docs/project_info/img/idea.png" width="1000" />
+]
+
+.footnote[
+[snakemake.readthedocs.io](https://snakemake.readthedocs.io)
+]
+
+---
+
+## Tools for Reproducible Bioinformatics 
+
+| package mgmt | scripts | reports | workflow | version control |
+|---|---|---|---|---|
+|   <img src="https://docs.conda.io/en/latest/_images/conda_logo.svg" width="175"/> | <img src="https://longhowlam.files.wordpress.com/2017/04/rp.png" height="175"/> | <img src="https://ulyngs.github.io/rmarkdown-workshop-2019/slides/figures/rmarkdown.png" height="165"/> | <img src="https://avatars.githubusercontent.com/u/33450111?s=400&v=4" height="175"> |<img src="https://miro.medium.com/max/2625/1*8fPMdk2Cd5iJQ7dI7jXCbA.jpeg" height="175"/> |
+
+--
+
+.center[
+### ...and headache prevention!
+]
+
