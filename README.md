@@ -11,6 +11,10 @@ Tips & tricks for making the most of GitHub
 Contents:
 
 -   [GitHub Pages](#github-pages)
+    -   [Getting started](#getting-started)
+    -   [R Markdown
+        reports](#Viewing-HTML-files-created-with-R-Markdown)
+    -   [Sharing slides](#Sharing-slides-for-presentations)
 -   [GitHub Actions](#github-actions)
 -   [More Ideas?](#more-ideas)
 
@@ -30,10 +34,12 @@ Host static web pages for free!
 
 #### Initial tips
 
--   Plain markdown (`.md`) files will be styled according to the Theme
-    chosen in settings.
+-   In settings, choose a theme, then plain markdown (`.md`) files will
+    automatically be styled and rendered to HTML. GitHub stores your
+    theme setting in `/docs/_config.yml`.
 -   Create a file called `index.md` inside `/docs`, and it will appear
     as the landing page at `https://your-username.github.io/repo-name`.
+    (Must first choose a theme for `.md` to render properly.)
 -   To make a personal website, the repo must be named
     `your-username.github.io`.
     -   e.g. here’s mine:
