@@ -39,15 +39,16 @@ Host static web pages for free!
 
 #### Initial tips
 
-- In settings, choose a theme, then plain markdown (`.md`) files will automatically be styled and rendered to HTML. GitHub stores your theme setting in `/docs/_config.yml`.
-- Create a file called `index.md` inside `/docs`, and it will appear as the landing page at `https://your-username.github.io/repo-name`. (Must first choose a theme for `.md` to render properly.)
-- To make a personal website, the repo must be named `your-username.github.io`. 
-  - e.g. here's mine: <https://github.com/kelly-sovacool/kelly-sovacool.github.io>
-  - If you own a custom domain, you can use it!
-    ![custom domain](figures/pages-2_custom-domain.png)
 - Pat has a custom domain set up for the lab, so pages from repos in the `SchlossLab` GitHub Organization appear at `http://www.schlosslab.org/repo-name`.
   - e.g. the mikropml documentation appears at <http://www.schlosslab.org/mikropml/>, and
-  the source files are in [the `/docs` folder](https://github.com/SchlossLab/mikropml/tree/master/docs) of `github.com/SchlossLab/mikropml`.
+  the source files are in [the `/docs` folder of `SchlossLab/mikropml`](https://github.com/SchlossLab/mikropml/tree/master/docs).
+- In settings, choose a theme, then plain markdown (`.md`) files will automatically be styled and rendered to HTML. GitHub stores your theme setting in `/docs/_config.yml`.
+- Create a file called `index.md` inside `/docs`, and it will appear as the landing page at `https://your-username.github.io/repo-name`. (Must first choose a theme for `.md` to render properly.)
+  - e.g. [docs/index.md](https://github.com/SchlossLab/gh-tips/blob/master/docs/index.md) and <http://SchlossLab.github.io/gh-tips/>
+- To make a personal website, the repo must be named `your-username.github.io`. 
+  - Here's mine: <https://github.com/kelly-sovacool/kelly-sovacool.github.io>
+  - If you own a custom domain, you can use it!
+    ![custom domain](figures/pages-2_custom-domain.png)
 - Warning: the rendered web page will be **public** even if your repository is **private**. 
 
 ### Viewing HTML files created with R Markdown
