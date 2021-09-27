@@ -20,9 +20,6 @@ Tips & tricks for making the most of GitHub
 Contents:
 
 - [GitHub Pages](#github-pages)
-  - [Getting started](#getting-started)
-  - [R Markdown reports](#Viewing-HTML-files-created-with-R-Markdown)
-  - [Sharing slides](#Sharing-slides-for-presentations)
 - [GitHub Actions](#github-actions)
 - [More Ideas?](#more-ideas)
 
@@ -88,7 +85,99 @@ Example:
 Do things like run unit tests, render R Markdown documents, and more 
 ✨ _automagically_ ✨
 
-TODO
+All you need is a GitHub repo! 
+Every workflow is a YAML file in `.github/workflows/`,
+and GitHub will automatically run the jobs in the workflow depending on rules you specify.
+
+### [Quickstart](https://docs.github.com/en/actions/quickstart)
+
+1. Create [`.github/workfows/demo.yml`](.github/workfows/demo.yml):
+
+    ``` yaml
+    name: GitHub Actions Demo
+    on: [push]
+    jobs:
+      Explore-GitHub-Actions:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          - name: Check out repository code
+            uses: actions/checkout@v2
+          - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+          - name: List files in the repository
+            run: |
+              ls ${{ github.workspace }}
+          - run: echo "🍏 This job's status is ${{ job.status }}."
+    ```
+
+1. Add, commit, & push it to GitHub.
+
+    ``` sh
+    git add .github/workflows/demo.yml
+    git commit -m "Create GitHub Actions demo"
+    git push
+    ```
+
+1. Wait for the workflow to run and take a look at the results under the [Actions tab](https://github.com/SchlossLab/gh-tips/actions).
+
+### Triggering workflows to run
+
+- When a commit is pushed to any branch.
+  ``` YAML
+  on: push
+  ```
+- When a commit is pushed to a particular branch or branches.
+  ``` YAML
+  on: 
+    push:
+      branches:
+        - main
+        - another-branch-name
+  ```
+- When a commit is pushed to a Pull Request against a particular branch.
+  ``` YAML
+  on: 
+    pull_request:
+      branches:
+        - main
+  ```
+- When certain files are modified.
+  ``` YAML
+  on: 
+    push:
+      paths:
+        - *.R
+        - *.Rmd
+        - *.py
+  ```
+- On a [schedule](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#schedule) (a.k.a. a cron job).
+  ``` YAML
+  on:
+    schedule:
+      - cron:  '0 0 * * 1' # every monday at midnight
+  ```
+
+### Examples
+
+1. [Reformat your code on every push](https://github.com/SchlossLab/Sovacool_OptiFit_2021/blob/main/.github/workflows/build.yml).
+1. [Check that an R package still works for every OS & the last 3 R versions](https://github.com/SchlossLab/mikropml/blob/main/.github/workflows/check.yml).
+1. [Render package documentation on every Pull Request](https://github.com/SchlossLab/mikropml/blob/main/.github/workflows/pr_build.yml).
+1. [Compile a JOSS/JOSE paper.md as a PDF and upload as an _artifact_](https://github.com/UMCarpentries/intro-curriculum-r/blob/gh-pages/.github/workflows/draft-pdf.yml).
+1. [Render an R Markdown document every Monday at 5am](https://github.com/kelly-sovacool/pkg-downloads/blob/main/.github/workflows/render-rmarkdown.yaml).
+
+### Actions tips
+
+1. You can only have one workflow that pushes commits to your repo.
+1. Use [crontab guru](https://crontab.guru/) to make sure your cron schedule does what you think it does.
+1. There's a monthly wall time limit for private repos, but there's no limit for public repos.
+
+### More Resources on GitHub Actions
+
+- The GitHub Docs: https://docs.github.com/en/actions
+- Actions for R by RStudio: https://github.com/r-lib/actions
 
 ## Badges
 
